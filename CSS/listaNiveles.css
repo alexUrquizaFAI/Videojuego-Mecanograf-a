@@ -22,7 +22,9 @@ body {
     /* Ajustamos el espacio interno alrededor del contenido */
     padding: 2rem;
     /* Ajustamos el tono brillante del texto */
+    /* Para generar sombras en las letras */
     text-shadow:
+    /* (Desplazamiento:'Horizontal' 'Vertical') 'Difuminado' 'Color' */
     0 0 2px  var(--verde-fosforo),
     0 0 6px  var(--verde-fosforo),
     0 0 14px #00cc33;
@@ -41,3 +43,24 @@ h1, h2 {
     0 0 40px #00aa22;
 }
 
+/* Modificacion a los links o enlaces de navegabilidad en la pagina */
+a {
+    color: #66ff99;
+
+    /* Quitamos el subrayado por defecto que tiene un link */
+    text-decoration: none;
+
+    text-shadow: 0 0 4px #33ff66, 0 0 8px #00cc33;
+}
+
+/* Customizacion: Cuando el mause este encima del link */
+a:hover{
+    color: #ccffcc;
+
+    /* Agregamos un contorno a los links */
+    /* 'El grozor' 'Tipo' 'Color' */
+    outline: 2px solid var(--verde-fosforo);
+
+    /* Ajustamos la separacion del contorno con el texto */
+    outline-offset: 3px;
+}
