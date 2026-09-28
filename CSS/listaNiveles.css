@@ -1,5 +1,28 @@
+/* :root apunta a la etiqueta raiz "html" para que quede disponible en toda la pagina lo que declaremos aqui */
+:root {
+    /* Declaramos 3 variables que contendran colores que se utilizaran multiples veces */
+    --verde-fosforo: #33ff66;
+    --verde-claro:   #aaffaa;
+    --fondo-crt:     #0a140a;
+}
+
 body {
-    font-family: 'Press Start 2P', monospace;
     margin: 0;
-    background-color: #334838;
+    /* Pintamos el fondo de la pagina */
+    background-color: var(--fondo-crt);
+    /* Pintamos el color del texto */
+    color: var(--verde-fosforo);
+    /* Cambiamos la fuente de la letra */
+    font-family: 'VT323', 'Press Start 2P', monospace;
+    /* Ajustamos el tamaño de la letra en toda la pagina */
+    font-size: 1.25rem;
+    /* Ajustamos el espacio entre lineas */
+    line-height: 1.6;
+    /* Ajustamos el espacio interno alrededor del contenido */
+    padding: 2rem;
+    /* Ajustamos el tono brillante del texto */
+    text-shadow:
+    0 0 2px  var(--verde-fosforo),
+    0 0 6px  var(--verde-fosforo),
+    0 0 14px #00cc33;
 }
