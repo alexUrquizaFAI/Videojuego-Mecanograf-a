@@ -11,6 +11,28 @@ body {
     margin: 0;
     /* Pintamos el fondo de la pagina */
     background-color: var(--fondo-crt);
+
+    /* Dibujamos la cuadricula con dos gradientes apilados: el primero dibuja lineas verticales, el segundo horizontales */
+    background-image:
+        /* Lineas verticales: la direccion es "to right", entonces las lineas quedan verticales */
+        repeating-linear-gradient(
+            to right,
+            rgba(120, 200, 190, 0.08) 0px,
+            rgba(120, 200, 190, 0.08) 1px,
+            transparent 1px,
+            transparent 20px
+        ),
+        /* Lineas horizontales: la direccion es "to bottom", entonces las lineas quedan horizontales */
+        repeating-linear-gradient(
+            to bottom,
+            rgba(120, 200, 190, 0.08) 0px,
+            rgba(120, 200, 190, 0.08) 1px,
+            transparent 1px,
+            transparent 20px
+        );
+    /* Hace que la cuadricula no se mueva cuando el usuario hace scroll */
+    background-attachment: fixed;
+
     /* Pintamos el color del texto */
     color: var(--verde-fosforo);
     /* Cambiamos la fuente de la letra */
