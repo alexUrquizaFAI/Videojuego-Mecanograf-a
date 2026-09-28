@@ -38,7 +38,7 @@ body {
     /* Cambiamos la fuente de la letra */
     font-family: 'VT323', 'Press Start 2P', monospace;
     /* Ajustamos el tamaño de la letra en toda la pagina */
-    font-size: 1.25rem;
+    font-size: 2rem;
     /* Ajustamos el espacio entre lineas */
     line-height: 1.6;
     /* Ajustamos el espacio interno alrededor del contenido */
@@ -125,4 +125,9 @@ a:hover{
     mix-blend-mode: multiply;
     /* Deja en claro la prioridad que tiene esta funcion(Fondo decorativo) con el resto */
     z-index: 9999;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 4rem;
 }
