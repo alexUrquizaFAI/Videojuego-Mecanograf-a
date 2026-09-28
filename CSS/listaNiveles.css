@@ -31,7 +31,7 @@ body {
 }
 
 /* Modifico el titulo y subtitulo */
-h1, h2 {
+h1, h2, p {
     color: var(--verde-claro);
     /* Ajustamos la separacion entre letras para una mejor legibilidad */
     letter-spacing: 2px;
@@ -63,6 +63,20 @@ a:hover{
 
     /* Ajustamos la separacion del contorno con el texto */
     outline-offset: 3px;
+}
+
+.bordeOscuro {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    /* Dibuja un gradiente que va desde un punto central hacia afuera, en forma de circulo */
+    background: radial-gradient(
+    /* Aca se aclara que vas desde un punto central hacia afuera y que no es un circulo perfecto el que se sibuja sino un elipse */
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.65) 100%
+    );
+    z-index: 9998;
 }
 
 /* Modificacion del fondo dinamico decorativo */
