@@ -6,6 +6,7 @@
     --fondo-crt:     #0a140a;
 }
 
+/* Modificaciones por defecto que tendran los elementos contenidos en la pagina */
 body {
     margin: 0;
     /* Pintamos el fondo de la pagina */
@@ -26,3 +27,17 @@ body {
     0 0 6px  var(--verde-fosforo),
     0 0 14px #00cc33;
 }
+
+/* Modifico el titulo y subtitulo */
+h1, h2 {
+    color: var(--verde-claro);
+    /* Ajustamos la separacion entre letras para una mejor legibilidad */
+    letter-spacing: 2px;
+
+    text-shadow:
+    0 0 4px  #66ff88,
+    0 0 10px #33ff66,
+    0 0 22px #00ff44,
+    0 0 40px #00aa22;
+}
+
