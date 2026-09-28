@@ -64,3 +64,29 @@ a:hover{
     /* Ajustamos la separacion del contorno con el texto */
     outline-offset: 3px;
 }
+
+/* Modificacion del fondo dinamico decorativo */
+.fondoRetro {
+    /* Se encla en la pantalla se movera junto al usuario */
+    position: fixed;
+    /* Permite que este fonde se vea por toda la pantalla */
+    /* Esta en 0 para decirles a todos los parametros que tnegan el mismo valor */
+    /* Parametros: 'top' 'right' 'bottom' 'left' */
+    inset: 0;
+    /* Para que no interfiera con los enlaces o interaccion que se pueda hacer click, dejamos en claro que este fondo es "transparente" */
+    pointer-events: none;
+    /* Funcion que dibuja lineas horizontales que se repite indefinidamente */
+    background: repeating-linear-gradient(
+    /* La direccion de las lineas seran de arriba hacia abajo */
+    to bottom,
+    /* rgba te permite regular la intensidad de la linea */
+    rgba(0, 0, 0, 0.18) 0px, /* Desde el pixel 0, color negro con 18% de opacidad */
+    rgba(0, 0, 0, 0.18) 1px,
+    transparent 1px, /* Desde el pixel 1, color transparente */
+    transparent 3px
+    );
+    /* Define como se combina esta capa con lo que esta debajo (texto, fondo, imagenes) */
+    mix-blend-mode: multiply;
+    /* Deja en claro la prioridad que tiene esta funcion(Fondo decorativo) con el resto */
+    z-index: 9999;
+}
