@@ -1,89 +1,113 @@
-<!DOCTYPE html> <!-- Esta linea sirve para indicarle al explorador web que el contenido que estamos escribiendo en este documento es de tipo html 5 -->
+<!DOCTYPE html>
+<!-- Esta linea sirve para indicarle al explorador web que el contenido que estamos escribiendo en este documento es de tipo html 5 -->
 
 <html> <!-- Etiqueta raiz -->
 
-    <head>
-        <title> DAXER </title>
-        
-        <!-- Con este codigo -->
-        <link rel="stylesheet" href="CSS/listaNiveles.css" />
+<head>
+    <title> DAXER </title>
 
-        <!-- Se agrego una nueva fuente custom -->
-        <!-- Press Start 2P -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/listaNiveles.css" />
 
-        <!-- VT323 -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <!-- Se agrego una nueva fuente custom -->
+    <!-- Press Start 2P -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    </head>
+    <!-- VT323 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 
-    <body>
-        <header> 
-            <h1 id="titulo" > DAXER - Juego de Mecanografia </h1>
-        </header>
+</head>
 
-        <section> 
-            <h2> Lista de niveles </h2>
+<body>
+    <header>
+        <h1 id="titulo"> DAXER - Juego de Mecanografia </h1>
+    </header>
 
-            <p> 
-                Descripcion (Introduccion al juego y como se juega)
-            </p>
+    <section>
+        <p>
+            Daxer es un juego de tipeo y aventura espacial que combina mecanografía, reflejos y aprendizaje.
+            Eres el piloto de la nave Daxer, en una misión de exploración que comienza en los confines del Sistema Solar
+            y termina cerca del Sol. Tu objetivo es sobrevivir al trayecto planeta por planeta.
+            Esquiva asteroides, visita la Luna y enfrenta hordas de naves enemigas. No tenés misiles, solo palabras.
+            ¡Tipea para sobrevivir!
+        </p>
 
-            <a href="#final" > Ir al pie de pagina. </a>
+        <a href="#final"> Ir al pie de pagina. </a>
 
-            <ul>
-                <article>
-                    1
-                </article>
-                <br>
-                <article>
-                    2
-                </article>
-                <br>
-                <article>
-                    3
-                </article>
-                <br>
-                <article>
-                    4
-                </article>
-                <br>
-                <article>
-                    5
-                </article>
-                <br>
-                <article>
-                    6
-                </article>
-                <br>
-                <article>
-                    7
-                </article>
-                <br>
-                <article>
-                    8
-                </article>
-                <br>
-                <article>
-                    9
-                </article>
-                <br>
-                <article>
-                    10
-                </article>
-            </ul>
-        </section>
-        <footer>
-            <a id="final" href="#titulo" > Volver al inicio. </a>
-        </footer>
+        <h2> Lista de niveles </h2>
 
-        <div class="bordeOscuro" aria-hidden="true"></div>
-        <!-- Para un fondo dinamico aplicamos aria-hidden(Un elemento decorativo) dentro de un div -->
-        <div class="fondoRetro" aria-hidden="true"></div>
-    </body>
+        <ol>
+            <li>
+                <article class="nivel">
+                    
+
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    
+
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    
+
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    
+
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    
+
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    
+
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    
+
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    
+
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    
+                </article>
+            </li>
+            <li>
+                <article class="nivel">
+                    <a href="Niveles/nivel10.html"> ¿La luna otra vez? </a>
+                </article>
+            </li>
+        </ol>
+    </section>
+    <footer>
+        <a id="final" href="#titulo"> Volver al inicio. </a>
+    </footer>
+
+    <!-- Para formar el borde oscuro -->
+    <div class="bordeOscuro" aria-hidden="true"></div>
+    <!-- Para un fondo dinamico aplicamos aria-hidden(Un elemento decorativo) dentro de un div -->
+    <div class="lineasHorizontales" aria-hidden="true"></div>
+</body>
 
 </html>
