@@ -54,7 +54,19 @@ body {
 }
 
 /* Modifico el titulo, subtitulo y el parrafo  */
-h1, h2, p {
+h1 {
+    color: var(--verde-fosforo);
+    /* Ajustamos la separacion entre letras para una mejor legibilidad */
+    letter-spacing: 2px;
+
+    text-shadow:
+    10 0 3px  var(--verde-fosforo),
+    0 0 3px var(--verde-fosforo),
+    0 0 2px var(--verde-fosforo),
+    0 0 1px var(--verde-fosforo);
+}
+
+section h2, p {
     color: var(--verde-fosforo);
     /* Ajustamos la separacion entre letras para una mejor legibilidad */
     letter-spacing: 2px;
@@ -68,7 +80,7 @@ h1, h2, p {
 
 /* Modificacion a los links o enlaces de navegabilidad en la pagina */
 a {
-    color: #66ff99;
+    color: var(--verde-fosforo);
 
     /* Quitamos el subrayado por defecto que tiene un link */
     text-decoration: none;
@@ -92,6 +104,11 @@ a:hover, a:focus-visible{
 .nivel a:hover,
 .nivel a:focus-visible {
     outline: none;
+}
+
+/* Modificacion del pie de pagina */
+.enlaceLocal {
+    font-size: 1rem;
 }
 
 .bordeOscuro {
@@ -139,10 +156,6 @@ header h1 {
     font-size: 4rem;
 }
 
-section ul {
-    list-style-type: none;
-}
-
 /* Recuadro interactivo */
 .nivel:hover,
 .nivel:focus-within {
@@ -155,4 +168,3 @@ section ul {
 .nivel {
     margin-bottom: 1rem;
 }
-
