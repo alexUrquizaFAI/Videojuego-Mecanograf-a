@@ -37,6 +37,8 @@ body {
     0 0 2px  var(--verde-fosforo),
     0 0 6px  var(--verde-fosforo),
     0 0 14px #00cc33;
+
+    
 }
 
 .bordeOscuro {
@@ -73,21 +75,14 @@ body {
     z-index: 9999;
 }
 
-.menu {
-    width: 400px;
-    margin: 0 auto;
+.panelPrincipal {
+    background-image: url('../Imagenes/Panel\ con\ imagen\ \(sin\ antena\).png');
+    background-repeat: no-repeat;
+    padding: 2rem;
+    color: var(--verde-fosforo);
+}
+
+.datosExtra{
     
-}
-
-section article {
-    /* transition: box-shadow 0.3s ease; */
-    background-color: #00cc33;
-    margin: 1rem 0;
-    border-radius: 0.5rem;
-    padding: 0.25rem 0;
-    /* cursor: pointer; */
-}
-
-section article h1 {
-    margin: 2rem;
+    /*border: 10px solid red*/
 }
