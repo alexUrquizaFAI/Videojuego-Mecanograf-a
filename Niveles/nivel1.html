@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    <!-- VT323 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -21,35 +20,48 @@
     <div class="bordeOscuro" aria-hidden="true"></div>
 
     <div class="lineasHorizontales" aria-hidden="true"></div>
-    <section class="menu">
+
+    <div class="ventanaNivel" aria-hidden="true"></div>
+
+    <div class="ventanaSecundaria" aria-hidden="true">
+        <p>
+            Dificultad - Facil
+                <br>
+                Limite de tiempo: 60s 
+                <br>
+                Cant. enemigos: 10
+                <br>
+                Tiempo record: 30s
+        </p>
+        <div class="barraProgreso"
+            role="progressbar"
+            aria-valuenow="50"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-label="Progreso del Nivel 1">
+        <span class="barraProgreso-relleno" style="width: 100%;">100%</span>
+    </div>
+    </div>
+    
+
+
+    <section>
+
         <article class="panelPrincipal">
-            <h3> Nivel 1 - ¿Donde estoy? </h3>
-            <p class="descripcion"> 
-                Descripcion
-            </p> 
             
-            <!--
-            Titulo del nivel B
-            Barra de progreso con porcentaje
-            Limite de tiempo
-            Descripcion del nivel
-            Tiempo record
-            Imagen de referencia del nivel
-            Opcion de regresar
-            Dificultad
-            Cantidad de enemigos
-            -->
-        </article>
-        <article class="panelSecundario" > 
-            <p class="datosExtra">
-                Dificultad - Facil
-                <br>
-                Limite de tiempo: 1 minuto 
-                <br>
-                Cantidad de enemigos:
-                <br>
-                Tiempo record:
-            </p>
+            <a class="volver" href="../index.html"> Volver </a>
+
+            <h3> Nivel 1 - ¿Donde estoy? </h3>
+
+            <image class="imgTitulo" src="../Imagenes/Niveles/espacio.jpg" width="400" high="400" />
+
+            <p class="descripcion"> 
+                El borde del universo. Aca terminan las reglas. 
+                
+            </p> 
+
+            <a class="jugar"> Jugar </a>
+
         </article>
     </section>
 </body>

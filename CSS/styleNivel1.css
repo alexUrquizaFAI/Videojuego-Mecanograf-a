@@ -35,10 +35,8 @@ body {
 
     text-shadow:
     0 0 2px  var(--verde-fosforo),
-    0 0 6px  var(--verde-fosforo),
-    0 0 14px #00cc33;
-
-    
+    0 0 0  var(--verde-fosforo),
+    0 0 0 #00cc33;
 }
 
 .bordeOscuro {
@@ -50,7 +48,7 @@ body {
     transparent 40%,
     rgb(0, 0, 0) 100%
     );
-    z-index: 9998;
+    z-index: 9999;
 }
 
 
@@ -76,13 +74,124 @@ body {
 }
 
 .panelPrincipal {
-    background-image: url('../Imagenes/Panel\ con\ imagen\ \(sin\ antena\).png');
-    background-repeat: no-repeat;
-    padding: 2rem;
-    color: var(--verde-fosforo);
+    width: 440px;
+    margin: 100px auto;
+    
 }
 
-.datosExtra{
+article h3 {
+    text-align: center;
+    /* Significados de los parametros */
+    /* arriba - derecha - abajo - izquierda */
+    margin: 10px 0 0 0;
+    font-weight: normal;
+}
+
+article p {
+    font-size: 17px;
+    margin: 0 0 0 11px;
+}
+
+article img {
+    margin: 0 auto 0 70px;
+    height: 150px;
+    width: 300px;
+}
+
+article a {
+    color: var(--verde-fosforo);
+
+    text-decoration: none;
+
+    text-shadow: 0 0 4px #33ff66, 0 0 0 #00cc33;
+
+    font-size: 17px;
+}
+
+article .jugar {
+    color: white;
+    text-shadow: 0 0 4px #33ff66, 0 0 0 #00cc33;
+    display: block;          /* deja de ser inline para aceptar margin auto */
+    margin: 0 0 0 auto;      /* arriba 0, derecha 0, abajo 0, izquierda auto → empuja a la derecha */
+    width: fit-content;      /* el enlace mide solo lo que mide su texto */
+    font-size: 30px;
+}
+
+article a:hover, a:focus {
+    color: #ccffcc;
+
+    outline: 2px solid var(--verde-fosforo);
+
+    outline-offset: 3px;
+}
+
+article .jugar:hover, .jugar:focus {
+    outline: none;
+}
+
+.ventanaNivel {
+    background-image: url('../Imagenes/Ventanas/Pop\ up\ extra.png');
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9995;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;      /* ancho de la ventana */
+    height: 350px; 
+    padding: 2rem;
     
-    /*border: 10px solid red*/
+}
+
+.ventanaSecundaria {
+    background-image: url('../Imagenes/Ventanas/Panel\ con\ imagen.png');
+    
+    background-repeat: no-repeat;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    top: 30%;
+    left: 86%;
+    transform: translate(-50%, -50%);
+    width: 500px;      /* ancho de la ventana */
+    height: 350px; 
+    padding: 2rem;
+
+    font-size: 20px;
+}
+
+.ventanaSecundaria p {
+    margin: 20px 10px;
+}
+
+.barraProgreso {
+    position: relative;
+    width: 34%;                          /* ocupa el ancho del panel */
+    height: 1.4rem;                       /* alto de la barra */
+    background-color: rgba(0, 0, 0, 0.5); /* riel vacío, oscuro */
+    border: 1px solid var(--verde-fosforo); /* borde verde a juego con el estilo */
+    border-radius: 0.2rem;
+    overflow: hidden;                     /* recorta el relleno a las esquinas */
+    margin-top: 1rem;                     /* separación respecto al párrafo */
+    box-sizing: border-box;
+    margin: 0 0 0 6px;
+}
+
+/* Relleno verde */
+.barraProgreso-relleno {
+    display: flex;
+    align-items: center;                  /* centra el texto verticalmente */
+    justify-content: flex-end;            /* texto pegado a la derecha */
+    padding-right: 0.5rem;
+    height: 100%;
+    background-color: #2e8b3d;            /* verde del relleno */
+    color: #ffffff;
+    font-size: 0.9rem;
+    box-shadow: 0 0 6px var(--verde-fosforo); /* glow sutil para integrarlo */
+    box-sizing: border-box;
+    transition: width 0.3s ease;          /* animación suave si cambia el valor */
 }
