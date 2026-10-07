@@ -21,29 +21,39 @@
 
     <div class="lineasHorizontales" aria-hidden="true"></div>
 
+    <!-- Una caja que contendra una imagen de fondo -->
     <div class="ventanaNivel" aria-hidden="true"></div>
 
+    <!-- Una caja que contendra una imagen de fondo, texto y una barra de progeso con otro div -->
     <div class="ventanaSecundaria" aria-hidden="true">
         <p>
             Dificultad - Facil
-                <br>
-                Limite de tiempo: 60s 
-                <br>
-                Cant. enemigos: 10
-                <br>
-                Tiempo record: 30s
+            <br>
+            Limite de tiempo: 60s 
+            <br>
+            Cant. enemigos: 10
+            <br>
+            Tiempo record: 30s
         </p>
-        <div class="barraProgreso"
+
+        <!-- Barra de progeso -->
+        <!-- progressbar les dice a los lectores de pantalla que este elemento no es un div generico, sino una barra de progreso -->
+        <!-- aria-valuenow = porcentaje del width del relleno. Es el valor actual de la barra, en el que se usa para anunciar el progreso -->
+        <!-- aria-valuemin Indica el minimo del rango -->
+        <!-- aria-valuemax Indica el maximo del rango -->
+        <!-- aria-lavel es el nombre accesible de la barra -->
+        <div class="barraProgreso" 
             role="progressbar"
-            aria-valuenow="50"
+            aria-valuenow="100"
             aria-valuemin="0"
             aria-valuemax="100"
             aria-label="Progreso del Nivel 1">
-        <span class="barraProgreso-relleno" style="width: 100%;">100%</span>
-    </div>
-    </div>
-    
 
+            <!-- <span> esta etiqueta inline nos permite contener el relleno del progreso y es mas liviana que un div -->
+            <!-- style="width" nos indica que porcentaje del progreso llevamos(es lo pintado de la barra)  -->
+            <span class="barraProgreso-relleno" style="width: 100%;"> 100% </span>
+        </div>
+    </div>
 
     <section>
 
@@ -51,13 +61,12 @@
             
             <a class="volver" href="../index.html"> Volver </a>
 
-            <h3> Nivel 1 - ¿Donde estoy? </h3>
+            <h3> Nivel 1 - ¿Dónde estoy? </h3>
 
             <image class="imgTitulo" src="../Imagenes/Niveles/espacio.jpg" width="400" high="400" />
 
             <p class="descripcion"> 
-                El borde del universo. Aca terminan las reglas. 
-                
+                Acá va una descripcion. Acá va una descripcion. Acá va una descripcion. 
             </p> 
 
             <a class="jugar"> Jugar </a>
