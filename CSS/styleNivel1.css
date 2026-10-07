@@ -41,13 +41,17 @@ body {
 
 .bordeOscuro {
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
+
     background: radial-gradient(
     ellipse at center,
     transparent 40%,
     rgb(0, 0, 0) 100%
     );
+
     z-index: 9999;
 }
 
@@ -73,31 +77,38 @@ body {
     z-index: 9999;
 }
 
+/* Modificamso el articulo del panel principal para que quede centrado y dentro de la imagen que tiene el div */
 .panelPrincipal {
     width: 440px;
     margin: 100px auto;
-    
 }
 
+/* Modificacion del Titulo que tiene el articulo */
 article h3 {
-    text-align: center;
     /* Significados de los parametros */
     /* arriba - derecha - abajo - izquierda */
     margin: 10px 0 0 0;
+
+    text-align: center;
+
+    /* Cambiamos el aspecto del texto para que no este remarcado en negrita */
     font-weight: normal;
 }
 
+/* Modificacion del parrafo que tiene el articulo */
 article p {
     font-size: 17px;
     margin: 0 0 0 11px;
 }
 
+/* Modificacion que tiene la imagen del articulo */
 article img {
     margin: 0 auto 0 70px;
     height: 150px;
     width: 300px;
 }
 
+/* Modificacion de los enlaces que tiene el articulo (volver y jugar) */
 article a {
     color: var(--verde-fosforo);
 
@@ -108,12 +119,20 @@ article a {
     font-size: 17px;
 }
 
+/* Modificacion del enlace jugar que tiene el articulo */
 article .jugar {
     color: white;
+
     text-shadow: 0 0 4px #33ff66, 0 0 0 #00cc33;
-    display: block;          /* deja de ser inline para aceptar margin auto */
-    margin: 0 0 0 auto;      /* arriba 0, derecha 0, abajo 0, izquierda auto → empuja a la derecha */
-    width: fit-content;      /* el enlace mide solo lo que mide su texto */
+
+    /* Transformamos el enlace en una bloque(lo convertimos en un objeto que tiene su propia caja) */
+    /* Con esta opcion, las opciones del widht, padding, margin, etc. Tendran efecto en el enlace */
+    display: block;          
+
+    margin: 0 0 0 auto;      
+
+    width: fit-content;      
+
     font-size: 30px;
 }
 
@@ -131,67 +150,116 @@ article .jugar:hover, .jugar:focus {
 
 .ventanaNivel {
     background-image: url('../Imagenes/Ventanas/Pop\ up\ extra.png');
+
+    /* Estira la imagen al tamaño del div */
     background-size: 100% 100%; 
+
     background-repeat: no-repeat;
+
     position: fixed;
-    inset: 0;
+
     pointer-events: none;
+
     z-index: 9995;
+
+    /* Mueve de arriba a abajo el div */
     top: 50%;
     left: 50%;
+
+    /* Corrige para que el centro del div coincida con el centro de la pantalla */
     transform: translate(-50%, -50%);
-    width: 500px;      /* ancho de la ventana */
-    height: 350px; 
-    padding: 2rem;
+
+    width: 500px;     
     
+    height: 350px; 
+
+    padding: 2rem;
 }
 
 .ventanaSecundaria {
     background-image: url('../Imagenes/Ventanas/Panel\ con\ imagen.png');
     
     background-repeat: no-repeat;
+
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
+
     z-index: 9998;
+
     top: 30%;
+
     left: 86%;
+
     transform: translate(-50%, -50%);
-    width: 500px;      /* ancho de la ventana */
+
+    width: 500px;     
+
     height: 350px; 
+
     padding: 2rem;
 
     font-size: 20px;
 }
 
+/* MOdificamos el parrafo que tiene la venta secundaria del div */
 .ventanaSecundaria p {
     margin: 20px 10px;
 }
 
 .barraProgreso {
-    position: relative;
-    width: 34%;                          /* ocupa el ancho del panel */
-    height: 1.4rem;                       /* alto de la barra */
-    background-color: rgba(0, 0, 0, 0.5); /* riel vacío, oscuro */
-    border: 1px solid var(--verde-fosforo); /* borde verde a juego con el estilo */
+    width: 34%;             
+    
+    height: 1.4rem;         
+    
+    background-color: rgba(0, 0, 0, 0.5); 
+
+    border: 1px solid var(--verde-fosforo); 
+
     border-radius: 0.2rem;
-    overflow: hidden;                     /* recorta el relleno a las esquinas */
-    margin-top: 1rem;                     /* separación respecto al párrafo */
+    
+    /* Permite que el relleno sea redondeado y no cuadrado */
+    overflow: hidden;                     
+
+    /* Permite que no este pegada al texto del parrafo */
+    margin-top: 1rem;                    
+
+    /* Cuando cambiamos width/height tambien se suma el padding y el border */
+    /* Utilizamos esta funcion para que el ajuste del width sea mas exacto */
     box-sizing: border-box;
+    
     margin: 0 0 0 6px;
 }
 
 /* Relleno verde */
 .barraProgreso-relleno {
+
     display: flex;
-    align-items: center;                  /* centra el texto verticalmente */
-    justify-content: flex-end;            /* texto pegado a la derecha */
+
+    /* Permite que los elementos que se encuentra en la barra esten centrados, como el texto "100%" */
+    align-items: center;   
+    
+    /* Controla la posicion del elemento que tiene la barra horizontalmente, en este caso esta pegado a la derecha */
+    justify-content: flex-end;    
+    
+    /* Para que el texto de la barra no este pegado a los bordes */
     padding-right: 0.5rem;
+
+    /* Modificamos el alto del relleno */
     height: 100%;
-    background-color: #2e8b3d;            /* verde del relleno */
+
+    background-color: #2e8b3d;    
+    
     color: #ffffff;
+
     font-size: 0.9rem;
-    box-shadow: 0 0 6px var(--verde-fosforo); /* glow sutil para integrarlo */
+
+    box-shadow: 0 0 6px var(--verde-fosforo);
+    
     box-sizing: border-box;
-    transition: width 0.3s ease;          /* animación suave si cambia el valor */
+
+    /* Para que en un futuro con JS el cambio del porcentaje se vea natural */
+    /* transition: width 0.3s ease; */         
 }
