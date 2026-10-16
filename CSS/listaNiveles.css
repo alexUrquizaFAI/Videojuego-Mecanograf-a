@@ -9,37 +9,43 @@
 /* Modificaciones por defecto que tendran los elementos contenidos en la pagina */
 body {
     margin: 0;
-    /* min-height: 100vh; */
+
     /* Pintamos el fondo de la pagina */
     background-color: var(--fondo-crt);
 
-    /* Dibujamos la cuadricula con dos gradientes apilados: el primero dibuja lineas verticales, el segundo horizontales */
+    /* Dibujamos la cuadricula con dos gradientes apilados: El primero dibuja lineas verticales, el segundo horizontales */
     background-image:
         /* Lineas verticales: la direccion es "to right", entonces las lineas quedan verticales */
-        repeating-linear-gradient(to right,
+        repeating-linear-gradient(to right, /* ! */
             rgba(120, 200, 190, 0.08) 0px,
             rgba(120, 200, 190, 0.08) 1px,
             transparent 1px,
             transparent 20px),
         /* Lineas horizontales: la direccion es "to bottom", entonces las lineas quedan horizontales */
-        repeating-linear-gradient(to bottom,
+        repeating-linear-gradient(to bottom, /* ! */
             rgba(120, 200, 190, 0.08) 0px,
             rgba(120, 200, 190, 0.08) 1px,
             transparent 1px,
             transparent 20px);
+
     /* Hace que la cuadricula no se mueva cuando el usuario hace scroll */
     background-attachment: fixed;
 
     /* Pintamos el color del texto */
     color: var(--verde-fosforo);
+
     /* Cambiamos la fuente de la letra */
     font-family: 'VT323', 'Press Start 2P', monospace;
+
     /* Ajustamos el tamaño de la letra en toda la pagina */
     font-size: 2rem;
+
     /* Ajustamos el espacio entre lineas */
     line-height: 1.6;
+
     /* Ajustamos el espacio interno alrededor del contenido */
     padding: 2rem;
+
     /* Ajustamos el tono brillante del texto */
     /* Para generar sombras en las letras */
     text-shadow:
@@ -52,6 +58,7 @@ body {
 /* Modifico el titulo, subtitulo y el parrafo  */
 h1 {
     color: var(--verde-fosforo);
+
     /* Ajustamos la separacion entre letras para una mejor legibilidad */
     letter-spacing: 15px;
 
@@ -62,10 +69,9 @@ h1 {
         0 0 1px var(--verde-fosforo);
 }
 
-section h2,
-p {
+section h2, p {
     color: var(--verde-fosforo);
-    /* Ajustamos la separacion entre letras para una mejor legibilidad */
+
     letter-spacing: 2px;
 
     text-shadow:
@@ -86,8 +92,7 @@ a {
 }
 
 /* Customizacion: Cuando el mause este encima del link */
-a:hover,
-a:focus-visible {
+a:hover, a:focus-visible {
     color: #ccffcc;
 
     /* Agregamos un contorno a los links */
@@ -99,9 +104,22 @@ a:focus-visible {
 }
 
 /* Quitamos el recuadro a los enlaces de los niveles */
-.nivel a:hover,
-.nivel a:focus-visible {
+.nivel a:hover, .nivel a:focus-visible {
     outline: none;
+}
+
+/* Recuadro interactivo */
+.nivel:hover, .nivel:focus-within {
+    /* ! */
+    box-shadow: 0 0.1rem 0.4rem var(--verde-fosforo);
+
+    padding: 0px 10px;
+}
+
+/* Modificamos el recuadro de los niveles */
+.nivel {
+    /* ! */
+    margin-bottom: 1rem;
 }
 
 /* Modificacion del pie de pagina */
@@ -111,27 +129,35 @@ a:focus-visible {
 
 .bordeOscuro {
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
+
     /* Dibuja un gradiente que va desde un punto central hacia afuera, en forma de circulo */
     background: radial-gradient(
-            /* Aca se aclara que vas desde un punto central hacia afuera y que no es un circulo perfecto el que se sibuja sino un elipse */
+            /* Aca se aclara que vas desde un punto central hacia afuera y que no es un circulo perfecto el que se dibuja sino un elipse */
             ellipse at center,
-            transparent 60%,
+            transparent 60%, /* ! */
             rgb(0, 0, 0) 100%);
+
     z-index: 9998;
 }
 
 /* Modificacion del fondo dinamico decorativo */
 .lineasHorizontales {
+
     /* Se ancla a la ventana del navegador, no se mueve al hacer scroll */
     position: fixed;
-    /* Permite que este fonde se vea por toda la pantalla */
-    /* Esta en 0 para decirles a todos los parametros que tnegan el mismo valor */
+
+    /* Permite que este fondo se vea por toda la pantalla */
+    /* Esta en 0 para decirles a todos los parametros que tengan el mismo valor */
     /* Parametros: 'top' 'right' 'bottom' 'left' */
     inset: 0;
+
     /* Para que no interfiera con los enlaces o interaccion que se pueda hacer click, dejamos en claro que este fondo es "transparente" */
     pointer-events: none;
+
     /* Funcion que dibuja lineas horizontales que se repite indefinidamente */
     background: repeating-linear-gradient(
             /* La direccion de las lineas seran de arriba hacia abajo */
@@ -143,112 +169,156 @@ a:focus-visible {
             transparent 1px,
             /* Desde el pixel 1, color transparente */
             transparent 3px);
+
     /* Define como se combina esta capa con lo que esta debajo (texto, fondo, imagenes) */
     mix-blend-mode: multiply;
+
     /* Deja en claro la prioridad que tiene esta funcion(Fondo decorativo) con el resto */
     z-index: 9999;
 }
 
-/* Recuadro interactivo */
-.nivel:hover,
-.nivel:focus-within {
-    box-shadow: 0 0.1rem 0.4rem var(--verde-fosforo);
-    padding: 0px 10px;
-
-}
-
-/* Modificamos el recuadro de los niveles */
-.nivel {
-    margin-bottom: 1rem;
-}
-
+/* ! */
 .cursor {
+    /* ! */
     display: inline-block;
 
-    width: 0.15em;              
-    height: 1.1em;               
+    width: 0.15em;           
+    
+    height: 1.1em;          
+    
     background-color: var(--verde-fosforo);
-    margin-left: -1;       
+
+    /* ! */
+    margin-left: -1;  
+    
+    /* ! */
     vertical-align: text-bottom;
 
+    /* ! */
     animation: parpadeo 0.8s step-end infinite;
 }
 
+/* ! */
 .texto-animado {
+    /* !inherit:  */
     color: inherit;
+
     text-shadow: inherit;
+
     font-family: inherit;
+
     font-size: inherit;
     
     letter-spacing: 10px;
 }
 
-
-
+/* ! */
 @keyframes parpadeo {
+    /* ! */
     0%, 49%   { opacity: 1; }
+
+    /* ! */
     50%, 100% { opacity: 0; }
 }
 
+/* ! */
 .maquina-escribir {
+    /* ! */
     display: inline-block;
+
+    /* ! */
     overflow: hidden;
+
+    /* ! */
     white-space: nowrap;
+
+    /* ! */
     vertical-align: bottom;
     
+    /* ! */
     box-sizing: border-box;
+
+    /* ! */
     animation: escribir-borrar 8s steps(21, end) infinite;
 }
 
+/* ! */
 @keyframes escribir-borrar {
+    /* ! */
     0% { width: 0ch; }
 
+    /* ! */
     40% { width: calc(21ch + 210px); } 
+
+    /* ! */
     60% { width: calc(21ch + 210px); } 
+
+    /* ! */
     90% { width: 0ch; }  
+
+    /* ! */
     100% { width: 0ch; } 
 }
 
-
+/* ! */
 .encabezado-juego {
+    /* ! */
     display: flex;               /* Usamos Flexbox para organizar los elementos en fila */
+
+    /* ! */
     align-items: center;         /* Centra verticalmente la imagen y el título */
+
+    /* ! */
     justify-content: center;     /* Centra horizontalmente todo el bloque en la página */
+
+    /* ! */
     gap: 15px;                   /* Mantiene la separación entre el avatar y el texto */
+
     margin-bottom: 2rem;
 }
 
-/* Modificación en listaNiveles.css */
+/* ! */
 .encabezado-juego h1 {
-    margin: 0;                   
-    text-align: left;            
-    font-size: 3rem;             
+    margin: 0;         
+
+    text-align: left;   
+
+    font-size: 3rem;     
+    
+    /* ! */
     /* Fijamos un ancho mínimo para que la animación de la palabra no modifique el tamaño del contenedor y evite que todo se mueva */
     min-width: 900px; 
 }
 
-
-.contenedor-descripcion {
-    /* Asegúrate de que la ruta coincida con donde guardaste la imagen */
+/* ! */
+.ventana-descripcion {
     background-image: url('../Imagenes/Ventanas/Ventana\ descripcion4.png'); 
+
+    /* ! */
     background-size: 100% 100%;
+
+    /* ! */
     background-repeat: no-repeat;
     
     width: 1400px;
+
     height: 450px;
 
-    /* Espacio interno para que el texto no toque los bordes del marco verde */
     padding: 3rem 4rem; 
     
-    /* Centra el contenedor y le da margen hacia abajo para no pegarse al título "Niveles" */
     margin: 0 auto 2rem auto; 
+
     /* max-width: 900px; Limita el ancho para que la imagen no se estire demasiado */
+
+    /* ! */
     box-sizing: border-box;
 }
 
-/* Quitamos el margen por defecto del párrafo interno para que quede centrado en la caja */
-.contenedor-descripcion p {
+/* ! */
+.ventana-descripcion p {
     margin: 0;
+
     font-size: 30px;
+    
     padding: 40px 50px;
 }
