@@ -1,7 +1,7 @@
 :root {
     --verde-fosforo: #33ff66;
-    --verde-claro:   #aaffaa;
-    --fondo-crt:     #0a140a;
+    --verde-claro: #aaffaa;
+    --fondo-crt: #0a140a;
 }
 
 body {
@@ -9,21 +9,17 @@ body {
     background-color: var(--fondo-crt);
 
     background-image:
-        repeating-linear-gradient(
-            to right,
+        repeating-linear-gradient(to right,
             rgba(120, 200, 190, 0.08) 0px,
             rgba(120, 200, 190, 0.08) 1px,
             transparent 1px,
-            transparent 20px
-        ),
-        
-        repeating-linear-gradient(
-            to bottom,
+            transparent 20px),
+
+        repeating-linear-gradient(to bottom,
             rgba(120, 200, 190, 0.08) 0px,
             rgba(120, 200, 190, 0.08) 1px,
             transparent 1px,
-            transparent 20px
-        );
+            transparent 20px);
     background-attachment: fixed;
 
     color: var(--verde-fosforo);
@@ -34,9 +30,9 @@ body {
     padding: 2rem;
 
     text-shadow:
-    0 0 2px  var(--verde-fosforo),
-    0 0 0  var(--verde-fosforo),
-    0 0 0 #00cc33;
+        0 0 2px var(--verde-fosforo),
+        0 0 0 var(--verde-fosforo),
+        0 0 0 #00cc33;
 }
 
 .bordeOscuro {
@@ -46,13 +42,11 @@ body {
 
     pointer-events: none;
 
-    background: radial-gradient(
-    ellipse at center,
-    transparent 40%,
-    rgb(0, 0, 0) 100%
-    );
+    background: radial-gradient(ellipse at center,
+            transparent 40%,
+            rgb(0, 0, 0) 100%);
 
-    z-index: 9999;
+    z-index: 10;
 }
 
 
@@ -61,32 +55,24 @@ body {
 
     inset: 0;
     pointer-events: none;
-    
-    background: repeating-linear-gradient(
-    
-    to bottom,
-    
-    rgba(0, 0, 0, 0.18) 0px, 
-    rgba(0, 0, 0, 0.18) 1px,
-    transparent 1px,
-    transparent 3px
-    );
+
+    background: repeating-linear-gradient(to bottom,
+
+            rgba(0, 0, 0, 0.18) 0px,
+            rgba(0, 0, 0, 0.18) 1px,
+            transparent 1px,
+            transparent 3px);
     mix-blend-mode: multiply;
 
-    z-index: 9999;
+    z-index: 10;
 }
 
 /* Modificamso el articulo del panel principal para que quede centrado y dentro de la imagen que tiene el div */
-.panelPrincipal {
-    width: 440px;
-    margin: 100px auto;
-}
-
 /* Modificacion del Titulo que tiene el articulo */
-article h3 {
+.ventanaNivel h3 {
     /* Significados de los parametros */
     /* arriba - derecha - abajo - izquierda */
-    margin: 10px 0 0 0;
+    margin: 10px;
 
     text-align: center;
 
@@ -94,72 +80,128 @@ article h3 {
     font-weight: normal;
 }
 
-/* Modificacion del parrafo que tiene el articulo */
-article p {
+.ventanaNivel p.descripcion {
     font-size: 17px;
-    margin: 0 0 0 11px;
+    margin: 0 50px; 
+    height: 70px; 
+    overflow-y: auto; 
+    padding-right: 15px; 
+}
+
+.ventanaNivel p.descripcion::-webkit-scrollbar {
+    display: none;
 }
 
 /* Modificacion que tiene la imagen del articulo */
-article img {
-    margin: 0 auto 0 70px;
+.ventanaNivel img {
+    margin: 0 95px;
     height: 150px;
     width: 300px;
+    align-items: center;
+    
 }
 
 /* Modificacion de los enlaces que tiene el articulo (volver y jugar) */
-article a {
-    color: var(--verde-fosforo);
-
-    text-decoration: none;
-
+.ventanaNivel a {
+    text-decoration: none; 
+    
     text-shadow: 0 0 4px #33ff66, 0 0 0 #00cc33;
+}
 
-    font-size: 17px;
+.enlaceVolver {
+    position: relative;
+    margin: 0;
+    width: 500px;
+}
+
+.volver {
+    color: var(--verde-fosforo);
+    font-size: 20px;
+    position: fixed;
+    top: 5.8%;
+    left: 4.5%;
+    z-index: 10;
+
+    /* Centra el texto dentro del círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    width: 33px;
+    height: 29px;
+
+    /* Forma circular */
+    border-radius: 50%;
+    border: 3px solid var(--verde-fosforo);
+
+    /* Relleno del círculo */
+    background-color: var(--fondo-crt);
+    ;
+
+    /* Texto encima */
+    color: var(--verde-fosforo);
+    font-family: 'VT323', monospace;
+    font-size: 28px;
+    /* text-decoration: none; */
+    
+    text-shadow: 0 0 4px var(--verde-fosforo);
+
+    /* Brillo exterior e interior */
+    box-shadow:
+        0 0 8px var(--verde-fosforo),
+        inset 0 0 12px rgba(51, 255, 102, 0.5);
+
+    pointer-events: auto;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jugar:hover,
+.jugar:focus {
+    color: #ccffcc;
+    outline: none;
+    box-shadow: none; 
 }
 
 /* Modificacion del enlace jugar que tiene el articulo */
-article .jugar {
+.jugar {
+    position: fixed;
+    top: 76%;
+    left: 73%;
+
+    display: inline-block;
+    padding: 4px 10px;
+    line-height: 1;
+
+    font-size: 40px;
     color: white;
-
     text-shadow: 0 0 4px #33ff66, 0 0 0 #00cc33;
+    text-decoration: none;
 
-    /* Transformamos el enlace en una bloque(lo convertimos en un objeto que tiene su propia caja) */
-    /* Con esta opcion, las opciones del widht, padding, margin, etc. Tendran efecto en el enlace */
-    display: block;          
-
-    margin: 0 0 0 auto;      
-
-    width: fit-content;      
-
-    font-size: 30px;
+    transition: box-shadow 0.2s ease;
 }
 
-article a:hover, a:focus {
-    color: #ccffcc;
-
-    outline: 2px solid var(--verde-fosforo);
-
-    outline-offset: 3px;
-}
-
-article .jugar:hover, .jugar:focus {
-    outline: none;
+.enlaceJugar {
+    margin: 0;
+    width: 50px;
+    height: 20px;
+    position: absolute;
 }
 
 .ventanaNivel {
     background-image: url('../Imagenes/Ventanas/Pop\ up\ extra.png');
 
     /* Estira la imagen al tamaño del div */
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
 
     background-repeat: no-repeat;
 
     position: fixed;
 
-    pointer-events: none;
+    /* pointer-events: none; */
 
-    z-index: 9995;
+
+    z-index: 1;
 
     /* Mueve de arriba a abajo el div */
     top: 50%;
@@ -168,25 +210,27 @@ article .jugar:hover, .jugar:focus {
     /* Corrige para que el centro del div coincida con el centro de la pantalla */
     transform: translate(-50%, -50%);
 
-    width: 500px;     
-    
-    height: 350px; 
+    width: 500px;
+
+    height: 350px;
 
     padding: 2rem;
 }
 
 .ventanaSecundaria {
     background-image: url('../Imagenes/Ventanas/Panel\ con\ imagen.png');
-    
+
     background-repeat: no-repeat;
 
     position: fixed;
 
-    inset: 0;
+    /* inset: 0; */
+    
 
-    pointer-events: none;
+    /* pointer-events: none; */
+    
 
-    z-index: 9998;
+    z-index: 6;
 
     top: 30%;
 
@@ -194,9 +238,9 @@ article .jugar:hover, .jugar:focus {
 
     transform: translate(-50%, -50%);
 
-    width: 500px;     
+    width: 500px;
 
-    height: 350px; 
+    height: 350px;
 
     padding: 2rem;
 
@@ -209,26 +253,26 @@ article .jugar:hover, .jugar:focus {
 }
 
 .barraProgreso {
-    width: 34%;             
-    
-    height: 1.4rem;         
-    
-    background-color: rgba(0, 0, 0, 0.5); 
+    width: 34%;
 
-    border: 1px solid var(--verde-fosforo); 
+    height: 1.4rem;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    border: 1px solid var(--verde-fosforo);
 
     border-radius: 0.2rem;
-    
+
     /* Permite que el relleno sea redondeado y no cuadrado */
-    overflow: hidden;                     
+    overflow: hidden;
 
     /* Permite que no este pegada al texto del parrafo */
-    margin-top: 1rem;                    
+    margin-top: 1rem;
 
     /* Cuando cambiamos width/height tambien se suma el padding y el border */
     /* Utilizamos esta funcion para que el ajuste del width sea mas exacto */
     box-sizing: border-box;
-    
+
     margin: 0 0 0 6px;
 }
 
@@ -238,27 +282,27 @@ article .jugar:hover, .jugar:focus {
     display: flex;
 
     /* Permite que los elementos que se encuentra en la barra esten centrados, como el texto "100%" */
-    align-items: center;   
-    
+    align-items: center;
+
     /* Controla la posicion del elemento que tiene la barra horizontalmente, en este caso esta pegado a la derecha */
-    justify-content: flex-end;    
-    
+    justify-content: flex-end;
+
     /* Para que el texto de la barra no este pegado a los bordes */
     padding-right: 0.5rem;
 
     /* Modificamos el alto del relleno */
     height: 100%;
 
-    background-color: #2e8b3d;    
-    
+    background-color: #2e8b3d;
+
     color: #ffffff;
 
     font-size: 0.9rem;
 
     box-shadow: 0 0 6px var(--verde-fosforo);
-    
+
     box-sizing: border-box;
 
     /* Para que en un futuro con JS el cambio del porcentaje se vea natural */
-    /* transition: width 0.3s ease; */         
+    /* transition: width 0.3s ease; */
 }
