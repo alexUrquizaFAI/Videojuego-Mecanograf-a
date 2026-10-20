@@ -16,13 +16,16 @@ body {
     /* Dibujamos la cuadricula con dos gradientes apilados: El primero dibuja lineas verticales, el segundo horizontales */
     background-image:
         /* Lineas verticales: la direccion es "to right", entonces las lineas quedan verticales */
-        repeating-linear-gradient(to right, /* ! */
-            rgba(120, 200, 190, 0.08) 0px,
-            rgba(120, 200, 190, 0.08) 1px,
+        /* Crea un degradado lineal que se repite indefinidamente */
+        repeating-linear-gradient(to right, /* to right: de izquierda a derecha */
+            /* 0px y 1px: Pinta desde el pixel 0 hasta el pixel 1, eso genera una linea de un pixel de ancho */
+            rgba(120, 200, 190, 0.08) 0px, /* Formate de color Red-Green-Blue-Alpha*/
+            rgba(120, 200, 190, 0.08) 1px, /* Alpha marca la opacidad que denota la transparencia en este caso */
+            /* Desde el pixel 1 hasta el 20, color transparente, eso genera un espacio vacio de 19px */
             transparent 1px,
-            transparent 20px),
+            transparent 20px), 
         /* Lineas horizontales: la direccion es "to bottom", entonces las lineas quedan horizontales */
-        repeating-linear-gradient(to bottom, /* ! */
+        repeating-linear-gradient(to bottom, 
             rgba(120, 200, 190, 0.08) 0px,
             rgba(120, 200, 190, 0.08) 1px,
             transparent 1px,
@@ -110,7 +113,8 @@ a:hover, a:focus-visible {
 
 /* Recuadro interactivo */
 .nivel:hover, .nivel:focus-within {
-    /* ! */
+    /* Agrega una sombra al rededor de la caja */
+    /* Desplazamiento Vertical - Desplazamiento Horizontal - Difuminado(a mayor valor, mas suave sera) - Color del borde */
     box-shadow: 0 0.1rem 0.4rem var(--verde-fosforo);
 
     padding: 0px 10px;
@@ -118,7 +122,7 @@ a:hover, a:focus-visible {
 
 /* Modificamos el recuadro de los niveles */
 .nivel {
-    /* ! */
+    /* El espacio vacio por debajo del elemento */
     margin-bottom: 1rem;
 }
 
@@ -138,7 +142,8 @@ a:hover, a:focus-visible {
     background: radial-gradient(
             /* Aca se aclara que vas desde un punto central hacia afuera y que no es un circulo perfecto el que se dibuja sino un elipse */
             ellipse at center,
-            transparent 60%, /* ! */
+            /* Punto de recorrido: 0% = centro, 100% = borde */
+            transparent 60%, /* Color transparente */
             rgb(0, 0, 0) 100%);
 
     z-index: 9998;
@@ -177,9 +182,10 @@ a:hover, a:focus-visible {
     z-index: 9999;
 }
 
-/* ! */
+/* Caja span que simula un cursor */
 .cursor {
-    /* ! */
+    /* Permite que acepte configuraciones de whith, height, margin y padding */
+    /* display define como se renderiza la caja del elemento */
     display: inline-block;
 
     width: 0.15em;           
@@ -188,19 +194,21 @@ a:hover, a:focus-visible {
     
     background-color: var(--verde-fosforo);
 
-    /* ! */
+    /* Margen externo izquierdo */
     margin-left: -1;  
     
-    /* ! */
-    vertical-align: text-bottom;
+    /* Alineacion vertical de un elemento inline/inline-block con respecto a la linea de texto */
+    vertical-align: text-bottom; /* Alinea con el borde inferior del texto */
 
-    /* ! */
+    /* Aplica una animacion llamada "parpadeo"(definida en el @keyframes) durante 8s */
+    /* step-end: Funcion de temporizador(cambio bruzco, sin transicion suave) */
+    /* Se repite infinitamente */
     animation: parpadeo 0.8s step-end infinite;
 }
 
-/* ! */
+/* Caja de span donde contendra el texto que hay que animar */
 .texto-animado {
-    /* !inherit:  */
+    /* inherit: Hace que el color del texto herede el valor del elemento padre(h1, id="Titulo")  */
     color: inherit;
 
     text-shadow: inherit;
@@ -212,92 +220,83 @@ a:hover, a:focus-visible {
     letter-spacing: 10px;
 }
 
-/* ! */
+/* Define fotogramas de una animacion */
 @keyframes parpadeo {
-    /* ! */
+    /* Se define desde el 0% hasta el 49% del ciclo de la animacion, el elemento tenga una opacity:1(totalmente visible) */
     0%, 49%   { opacity: 1; }
 
-    /* ! */
     50%, 100% { opacity: 0; }
 }
 
-/* ! */
 .maquina-escribir {
-    /* ! */
     display: inline-block;
 
-    /* ! */
-    overflow: hidden;
+    /* Modificamos el contenido que desborda de la caja */
+    overflow: hidden; /* Ocultar o recortar lo que sobra */
 
-    /* ! */
-    white-space: nowrap;
+    /* Impide que el texto se divida en varias lineas. Como se manejan los espacios en blanco y saltos de linea */
+    white-space: nowrap; /* No envolver: El texto no salta de linea */
 
-    /* ! */
+    /* Alinea la caja del texto animado con la base inferior de la linea */
     vertical-align: bottom;
     
-    /* ! */
+    /* Para que agregar bordes o padding de una forma regular */
     box-sizing: border-box;
 
-    /* ! */
+    /* 21 -> son la cantidad de caracteres */
     animation: escribir-borrar 8s steps(21, end) infinite;
 }
 
-/* ! */
 @keyframes escribir-borrar {
-    /* ! */
+    /* width: 0ch --> para el ancho del caracter */
     0% { width: 0ch; }
 
-    /* ! */
-    40% { width: calc(21ch + 210px); } 
+    /* calc() permite calcular valores combinando unidades */
+    /* 21ch --> Ancho de caracteres */
+    /* 250px --> Suma fija para compensar el espaciado entre letras(21 letras x 10px de letter-spacing) */
+    40% { width: calc(21ch + 210px); } /* 21 x 10 = 21. Si no se sumara esto, el texto quedaria "cortado" al final */
 
-    /* ! */
     60% { width: calc(21ch + 210px); } 
 
-    /* ! */
     90% { width: 0ch; }  
 
-    /* ! */
     100% { width: 0ch; } 
 }
 
-/* ! */
 .encabezado-juego {
-    /* ! */
-    display: flex;               /* Usamos Flexbox para organizar los elementos en fila */
+    /* Convierte el <header> en un contenedor Flexbox: sus hijos (la imagen de Loki y el <h1>) se organizan en fila por defecto, con un sistema de alineación flexible. */
+    display: flex;             
 
-    /* ! */
-    align-items: center;         /* Centra verticalmente la imagen y el título */
+    /* Alinea a los hijos verticalmente al centro del contenedor */
+    align-items: center;
 
-    /* ! */
-    justify-content: center;     /* Centra horizontalmente todo el bloque en la página */
+    /* Alinea los hijos horizontalmente al centro */
+    justify-content: center;  
 
-    /* ! */
-    gap: 15px;                   /* Mantiene la separación entre el avatar y el texto */
+    /* Deja 15px de separacion entre el avatar y el titulo */
+    gap: 15px;
 
     margin-bottom: 2rem;
 }
 
-/* ! */
 .encabezado-juego h1 {
     margin: 0;         
 
     text-align: left;   
 
     font-size: 3rem;     
-    
-    /* ! */
+
     /* Fijamos un ancho mínimo para que la animación de la palabra no modifique el tamaño del contenedor y evite que todo se mueva */
     min-width: 900px; 
 }
 
-/* ! */
 .ventana-descripcion {
     background-image: url('../Imagenes/Ventanas/Ventana\ descripcion4.png'); 
 
-    /* ! */
+    /* Estira la imagen de fondo al 100% del ancho y alto del contenedor. Ocupa toda la caja */
     background-size: 100% 100%;
 
-    /* ! */
+    /* Restrige para que el espacio vacio no repita la imagen */
     background-repeat: no-repeat;
     
     width: 1400px;
@@ -310,15 +309,40 @@ a:hover, a:focus-visible {
 
     /* max-width: 900px; Limita el ancho para que la imagen no se estire demasiado */
 
-    /* ! */
     box-sizing: border-box;
 }
 
-/* ! */
 .ventana-descripcion p {
     margin: 0;
 
     font-size: 30px;
-    
+
     padding: 40px 50px;
+}
+
+footer {
+    display: flex;
+
+    gap: 1.5rem;
+
+    margin-top: 3rem;
+}
+
+.creditos {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-left: auto;           
+}
+
+.creditos p {
+    font-size: 1.2rem;   
+
+    margin: 0;          
+    
+    /* Espacio entre letras */
+    letter-spacing: 1px;
 }

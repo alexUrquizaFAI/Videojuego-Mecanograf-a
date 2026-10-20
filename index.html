@@ -22,22 +22,25 @@
 </head>
 
 <body>
-    <!-- ! -->
+    <!-- Etiqueta semantica: Encabezado principal de la pagina -->
     <header class="encabezado-juego">
 
-        <!-- ! -->
+        <!-- alt: Provee una descripcion textual si la imagen no carga o para lectores de pantalla -->
         <img class="loki" src="Imagenes/Avatares/lokiRecortado.png" alt="Avatar del piloto Loki" height="155px" width="155px" />
         <h1 id="titulo">
             DAXER - 
 
-            <!-- ! -->
+            <!-- Agrupamos el texto que tendra una animacion -->
+            <!-- span: Es un contenedor en linea, es decir, no genera saltos de linea, usado para aplicar estilos de fragmentos de texto -->
             <span class="maquina-escribir">
 
-                <!-- ! -->
+                <!-- Contenemos el texto que tendra la animacion -->
                 <span class="texto-animado">Juego de mecanografia</span>
 
-                <!-- ! -->
-            </span><span class="cursor"></span>
+            </span>
+
+            <!-- span vacio que actua como el cursor titilante de la consola -->
+            <span class="cursor"></span>
         </h1>
     </header>
 
@@ -120,6 +123,12 @@
 
     <footer>
         <a class="enlaceLocal" id="final" href="#titulo"> Volver al inicio. </a>
+
+        <!-- Agrupa el contenido del pie de pagina(icono y texto de los autores) -->
+        <div class="creditos">
+            <img src="Imagenes/Iconos/Copy3.png" alt="Símbolo de Copyright" width="20" height="20">
+            <p> Rodriguez Ximena y Urquiza Damian </p>
+        </div>
     </footer>
 
     <!-- Para formar el borde oscuro -->
