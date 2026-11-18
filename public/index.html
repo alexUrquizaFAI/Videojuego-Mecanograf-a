@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- Esta linea sirve para indicarle al explorador web que el contenido que estamos escribiendo en este documento es de tipo html 5 -->
+
+<html> <!-- Etiqueta raiz -->
+
+<head>
+    <title> DAXER </title>
+
+    <link rel="stylesheet" href="/estilos_niveles(css)/listaNiveles.css" />
+
+    <!-- Estilos del pop up de niveles -->
+    <link rel="stylesheet" href="/estilos_niveles(css)/popupNiveles.css" />
+
+    <!-- Se agrego una nueva fuente custom -->
+    <!-- Nombre de la fuente: Press Start 2P -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Nombre de la fuente: VT323 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Etiqueta semantica: Encabezado principal de la pagina -->
+    <header class="encabezado-juego">
+
+        <!-- alt: Provee una descripcion textual si la imagen no carga o para lectores de pantalla -->
+        <img class="loki" src="Imagenes/Avatares/lokiRecortado.png" alt="Avatar del piloto Loki" height="155px"
+            width="155px" />
+        <h1 id="titulo">
+            DAXER -
+
+            <!-- Agrupamos el texto que tendra una animacion -->
+            <!-- span: Es un contenedor en linea, es decir, no genera saltos de linea, usado para aplicar estilos de fragmentos de texto -->
+            <span class="maquina-escribir">
+
+                <!-- Contenemos el texto que tendra la animacion -->
+                <span class="texto-animado">Juego de mecanografia</span>
+
+            </span>
+
+            <!-- span vacio que actua como el cursor titilante de la consola -->
+            <span class="cursor"></span>
+        </h1>
+    </header>
+
+    <section>
+        <div class="ventana-descripcion">
+            <p>
+                Daxer es un juego de tipeo y aventura espacial que combina mecanografía, reflejos y aprendizaje.
+                <br>
+                Eres el piloto de la nave Daxer, en una misión de exploración que comienza en los confines del Sistema
+                Solar
+                y termina cerca del Sol. Tu objetivo es sobrevivir al trayecto planeta por planeta.
+                Esquiva asteroides, visita la Luna y enfrenta hordas de naves enemigas. No tenés misiles, solo palabras.
+                ¡Tipea para sobrevivir!
+            </p>
+        </div>
+
+        <h2> Niveles </h2>
+
+        <!-- Cada enlace abre el pop up de su nivel (ver js/popupNiveles.js). data-nivel indica el numero del nivel -->
+        <ol>
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="1"> ¿Dónde estoy? </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="2"> El ojo de la tormenta </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="3"> El Gigante azul </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="4"> La envidia de la galaxia </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="5"> Las lunas de Galileo Galilei </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="6"> La Curiosity mato a Rovers </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="7"> Home, sweet home </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="8"> No está hecha de queso </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="9"> La Venus de Milo </a>
+                </article>
+            </li>
+
+            <li>
+                <article class="nivel">
+                    <a href="#" data-nivel="10"> ¿La luna otra vez? </a>
+                </article>
+            </li>
+        </ol>
+    </section>
+
+    <footer>
+        <a class="enlaceLocal" id="final" href="#titulo"> Volver al inicio. </a>
+
+        <!-- Agrupa el contenido del pie de pagina(icono y texto de los autores) -->
+        <div class="creditos">
+            <p> Rodriguez Ximena y Urquiza Damian </p>
+        </div>
+    </footer>
+
+    <!-- ===== POP UP DE NIVEL ===== -->
+    <!-- hidden: el pop up arranca oculto. JS lo muestra y completa los datos segun el nivel elegido -->
+    <div class="popup-fondo" id="popupFondo" hidden>
+
+        <!-- role="dialog" y aria-modal: indican a los lectores de pantalla que es una ventana emergente -->
+        <!-- aria-labelledby: el nombre accesible del dialogo es el titulo del nivel -->
+        <div class="popup-contenedor" role="dialog" aria-modal="true" aria-labelledby="popupTitulo">
+
+            <!-- Ventana principal -->
+            <div class="ventanaNivel">
+
+                <!-- Volver: cierra el pop up -->
+                <button type="button" class="boton-circular boton-volver" id="popupVolver"
+                    aria-label="Volver a la lista de niveles" title="Volver"> &lt; </button>
+
+                <!-- Siguiente nivel: JS lo oculta en el ultimo nivel -->
+                <button type="button" class="boton-circular boton-siguiente" id="popupSiguiente"
+                    aria-label="Pasar al siguiente nivel" title="Siguiente nivel"> &gt; </button>
+
+                <h3 id="popupTitulo"></h3>
+
+                <img class="imgTitulo" id="popupImagen" src="" alt="" width="400" height="400" />
+
+                <!-- tabindex="0": permite desplazar el texto con el teclado -->
+                <p class="descripcion" id="popupDescripcion" tabindex="0"></p>
+
+                <button type="button" class="jugar" id="popupJugar"> Jugar </button>
+            </div>
+
+            <!-- Ventana secundaria con los datos y la barra de progreso -->
+            <div class="ventanaSecundaria">
+                <p>
+                    Dificultad - <span id="popupDificultad"></span>
+                    <br>
+                    Limite de tiempo: <span id="popupTiempo"></span>
+                    <br>
+                    Cant. enemigos: <span id="popupEnemigos"></span>
+                    <br>
+                    Tiempo record: <span id="popupRecord"></span>
+                </p>
+
+                <div class="barraProgreso" id="popupBarra" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100" aria-label="Progreso del nivel">
+                    <span class="barraProgreso-relleno" id="popupRelleno" style="width: 0%;"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Para formar el borde oscuro -->
+    <div class="bordeOscuro" aria-hidden="true"></div>
+
+    <!-- Para un fondo dinamico aplicamos aria-hidden(Un elemento decorativo) dentro de un div -->
+    <div class="lineasHorizontales" aria-hidden="true"></div>
+
+    <!-- Logica del pop up de niveles -->
+    <script src="/dinamismo(javascript)/popupNiveles.js"></script>
+
+</body>
+
+</html>

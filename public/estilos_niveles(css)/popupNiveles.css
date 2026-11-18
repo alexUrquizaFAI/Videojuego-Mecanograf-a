@@ -1,0 +1,409 @@
+body.popup-abierto {
+    overflow: hidden;
+}
+
+/* Capa oscura que cubre toda la pantalla */
+.popup-fondo {
+    position: fixed;
+    inset: 0;
+
+    /* Por debajo de .bordeOscuro (9998) y .lineasHorizontales (9999), asi el efecto CRT tambien cubre el pop up */
+    z-index: 1000;
+
+    display: flex;
+
+    /* Si la pantalla es baja, el pop up se puede desplazar */
+    overflow: auto;
+
+    padding: 1rem;
+
+    background: rgba(0, 10, 0, 0.78);
+
+    /* Brillo mas suave que el de la pagina principal (igual que en la pagina del nivel) */
+    text-shadow: 0 0 2px var(--verde-fosforo);
+
+    animation: popup-aparecer 0.2s ease-out;
+}
+
+/* display:flex de arriba pisaria el atributo hidden, por eso se refuerza */
+.popup-fondo[hidden] {
+    display: none;
+}
+
+/* La regla global "p" de listaNiveles.css agrega espaciado entre letras: aca no */
+.popup-fondo p {
+    letter-spacing: normal;
+
+    text-shadow: 0 0 2px var(--verde-fosforo);
+}
+
+/* Contenedor del grupo (ventana principal + panel secundario) */
+.popup-contenedor {
+    --ventana-ancho: 564px;
+    --ventana-alto: 414px;
+
+    /* Medidas del panel secundario: ajustalas a tu imagen "Panel con imagen.png" */
+    --panel-ancho: 250px;
+    --panel-alto: 333px;
+
+    /* Cuanto se superponen las dos ventanas y cuanto sobresale el panel por arriba */
+    --solape: 22px;
+    --subida: 148px;
+
+    position: relative;
+
+    /* margin:auto centra el grupo en la pantalla */
+    margin: auto;
+
+    flex-shrink: 0;
+
+    width: calc(var(--ventana-ancho) + var(--panel-ancho) - var(--solape));
+
+    height: calc(var(--ventana-alto) + var(--subida));
+
+    /* Los espacios vacios del contenedor no bloquean el click en el fondo oscuro */
+    pointer-events: none;
+
+    animation: popup-entrar 0.25s ease-out;
+}
+
+.popup-contenedor>* {
+    pointer-events: auto;
+}
+
+.popup-contenedor .ventanaNivel {
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    z-index: 1;
+
+    /* Con border-box, 564 x 414 incluye el padding (igual que 500x350 + 2rem de padding) */
+    box-sizing: border-box;
+
+    width: var(--ventana-ancho);
+
+    height: var(--ventana-alto);
+
+    padding: 2rem;
+
+    background-image: url('../Imagenes/Ventanas/Pop\ up\ extra.png');
+
+    background-size: 100% 100%;
+
+    background-repeat: no-repeat;
+}
+
+.popup-fondo .ventanaNivel h3 {
+    margin: 10px;
+
+    /* Altura fija para que la imagen no se mueva cuando cambia el titulo */
+    height: 60px;
+
+    line-height: 60px;
+
+    text-align: center;
+
+    font-weight: normal;
+
+    white-space: nowrap;
+}
+
+/* Clase que agrega JS cuando el titulo es muy largo */
+.popup-fondo .ventanaNivel h3.titulo-largo {
+    font-size: 1.8rem;
+}
+
+.popup-fondo .ventanaNivel img {
+    margin: 0 95px;
+
+    height: 150px;
+
+    width: 300px;
+
+    /* Recorta la imagen en vez de deformarla */
+    object-fit: cover;
+}
+
+.popup-fondo .ventanaNivel p.descripcion {
+    font-size: 17px;
+
+    margin: 0 50px 15px 50px;
+
+    height: 45px;
+
+    overflow-y: auto;
+
+    padding-right: 15px;
+
+    /* Oculta la barra de desplazamiento (Firefox y Chrome/Edge/Safari) */
+    scrollbar-width: none;
+}
+
+.popup-fondo .ventanaNivel p.descripcion::-webkit-scrollbar {
+    display: none;
+}
+
+.popup-fondo .ventanaNivel p.descripcion:focus-visible {
+    outline: 2px solid var(--verde-fosforo);
+
+    outline-offset: 2px;
+}
+
+.popup-fondo .boton-circular {
+    position: absolute;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-sizing: content-box;
+
+    width: 33px;
+
+    height: 29px;
+
+    padding: 0;
+
+    border: 3px solid var(--verde-fosforo);
+
+    border-radius: 50%;
+
+    background-color: var(--fondo-crt);
+
+    color: var(--verde-fosforo);
+
+    font-family: 'VT323', monospace;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    text-shadow: 0 0 4px var(--verde-fosforo);
+
+    box-shadow:
+        0 0 8px var(--verde-fosforo),
+        inset 0 0 12px rgba(51, 255, 102, 0.5);
+
+    cursor: pointer;
+
+    transition: box-shadow 0.2s ease;
+}
+
+.popup-fondo .boton-circular[hidden] {
+    display: none;
+}
+
+.popup-fondo .boton-circular:hover,
+.popup-fondo .boton-circular:focus-visible {
+    color: #ccffcc;
+
+    box-shadow:
+        0 0 14px var(--verde-fosforo),
+        inset 0 0 16px rgba(51, 255, 102, 0.8);
+}
+
+.popup-fondo .boton-circular:focus-visible {
+    outline: 2px solid var(--verde-fosforo);
+
+    outline-offset: 3px;
+}
+
+/* Posiciones sobre los circulos decorativos de la imagen de la ventana (ajustables) */
+.popup-fondo .boton-volver {
+    left: 24px;
+
+    top: 22px;
+}
+
+.popup-fondo .boton-siguiente {
+    left: 486px;
+
+    top: 35px;
+}
+
+.popup-fondo .jugar {
+    position: absolute;
+
+    /* Posicion dentro de la ventana (ajustable) */
+    left: 411px;
+
+    top: 320px;
+
+    z-index: 3;
+
+    padding: 4px 10px;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    font-family: 'VT323', monospace;
+
+    font-size: 40px;
+
+    line-height: 1;
+
+    color: white;
+
+    text-shadow: 0 0 4px var(--verde-fosforo);
+}
+
+.popup-fondo .jugar:hover,
+.popup-fondo .jugar:focus-visible {
+    color: #ccffcc;
+}
+
+.popup-fondo .jugar:focus-visible {
+    outline: 2px solid var(--verde-fosforo);
+
+    outline-offset: 3px;
+}
+
+.popup-contenedor .ventanaSecundaria {
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    /* Por encima de la ventana principal, como en tu diseño */
+    z-index: 2;
+
+    box-sizing: border-box;
+
+    width: var(--panel-ancho);
+
+    height: var(--panel-alto);
+
+    padding: 2rem 1.5rem 2rem 2.2rem;
+
+    background-image: url('../Imagenes/Ventanas/Panel\ con\ imagen.png');
+
+    background-size: 100% 100%;
+
+    background-repeat: no-repeat;
+
+    font-size: 20px;
+}
+
+.popup-fondo .ventanaSecundaria p {
+    margin: 20px 0;
+}
+
+.popup-fondo .barraProgreso {
+    width: 170px;
+
+    height: 1.4rem;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    border: 1px solid var(--verde-fosforo);
+
+    border-radius: 0.2rem;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    margin: 0;
+}
+
+.popup-fondo .barraProgreso-relleno {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    padding-right: 0.5rem;
+
+    height: 100%;
+
+    background-color: #2e8b3d;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+
+    box-shadow: 0 0 6px var(--verde-fosforo);
+
+    box-sizing: border-box;
+
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 860px) {
+    .popup-contenedor {
+        display: flex;
+
+        flex-direction: column;
+
+        width: var(--ventana-ancho);
+
+        height: auto;
+    }
+
+    .popup-contenedor .ventanaNivel,
+    .popup-contenedor .ventanaSecundaria {
+        position: relative;
+
+        left: auto;
+
+        right: auto;
+
+        top: auto;
+
+        bottom: auto;
+    }
+
+    .popup-contenedor .ventanaSecundaria {
+        align-self: center;
+
+        margin-top: -20px;
+    }
+}
+
+@keyframes popup-aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popup-entrar {
+    from {
+        opacity: 0;
+
+        transform: translateY(12px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: none;
+    }
+}
+
+/* Respeta a quienes tienen desactivadas las animaciones en su sistema */
+@media (prefers-reduced-motion: reduce) {
+
+    .popup-fondo,
+    .popup-contenedor,
+    .popup-fondo .barraProgreso-relleno {
+        animation: none;
+
+        transition: none;
+    }
+}
