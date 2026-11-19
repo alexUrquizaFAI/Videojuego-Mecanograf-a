@@ -1,7 +1,8 @@
-'use strict';
+'use strict'; //Activa el modo estricto de JS para prevenir errores
 
-let nivelesAPI = []; 
+let nivelesAPI = []; //Varible que guardara la lista de niveles que se le pedira al servidor
 
+//Seleccionamos los elementos que tenemos en index.html a partir de la id
 const fondo = document.getElementById('popupFondo');
 
 const nombre = document.getElementById('popupTitulo');
@@ -24,13 +25,15 @@ const relleno = document.getElementById('popupRelleno');
 
 const botonVolver = document.getElementById('popupVolver');
 
-const botonSiguiente = document.getElementById('popupSiguiente');
+const botonSiguiente = document.getElementById('popupSiguiente'); //!Eliminar el boton siguiente
 
 const botonJugar = document.getElementById('popupJugar');
 
-let indiceActual = 0;   
-let disparador = null;  
+let indiceActual = 0; //Indice del nivel actual que va del 0 al 10
 
+let disparador = null; //Es un puntero o memoria temporal para guardar la referencia al elemento HTML
+
+//Funcion asincrona que realiza la peticion inicial de datos
 async function cargarNivelesDesdeAPI() {
     try {
         const respuesta = await fetch('/api/niveles?cantidad=10&from=0');

@@ -19,7 +19,7 @@ function listarNiveles(req, res) {
 function obtenerNivel(req, res) {
     const id = parseInt(req.params.id);
 
-    const nivel = nivelesService.obtenerNiveleId(id);
+    const nivel = nivelesService.obtenerNivelId(id);
 
     if(!nivel) {
         res.status(404).json({error:' No existe el nivel con la id ${id}'});

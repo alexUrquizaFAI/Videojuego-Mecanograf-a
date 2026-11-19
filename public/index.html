@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!-- Esta linea sirve para indicarle al explorador web que el contenido que estamos escribiendo en este documento es de tipo html 5 -->
-
+<!-- api/niveles?cantidad=5&from=0 -->
+<!-- api/niveles?cantidad=5&from=5 -->
+<!-- api/niveles/2 -->
 <html> <!-- Etiqueta raiz -->
 
 <head>
@@ -63,68 +65,10 @@
 
         <h2> Niveles </h2>
 
-        <!-- Cada enlace abre el pop up de su nivel (ver js/popupNiveles.js). data-nivel indica el numero del nivel -->
         <ol>
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="1"> ¿Dónde estoy? </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="2"> El ojo de la tormenta </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="3"> El Gigante azul </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="4"> La envidia de la galaxia </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="5"> Las lunas de Galileo Galilei </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="6"> La Curiosity mato a Rovers </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="7"> Home, sweet home </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="8"> No está hecha de queso </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="9"> La Venus de Milo </a>
-                </article>
-            </li>
-
-            <li>
-                <article class="nivel">
-                    <a href="#" data-nivel="10"> ¿La luna otra vez? </a>
-                </article>
-            </li>
+            
         </ol>
+
     </section>
 
     <footer>
@@ -136,8 +80,7 @@
         </div>
     </footer>
 
-    <!-- ===== POP UP DE NIVEL ===== -->
-    <!-- hidden: el pop up arranca oculto. JS lo muestra y completa los datos segun el nivel elegido -->
+    <!-- el pop up arranca oculto. JS lo muestra y completa los datos segun el nivel elegido -->
     <div class="popup-fondo" id="popupFondo" hidden>
 
         <!-- role="dialog" y aria-modal: indican a los lectores de pantalla que es una ventana emergente -->
